@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prisons List</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style type="text/css">
+		.heading {
+			font-size: 40;
+			text-align: center;
+			color: purple;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-light navbar-light">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+		<a href="/" class="btn btn-primary ml-3">Home</a>
+		</li>
+		
+		<!-- <li class="nav-item">
+		<a href="/add" class="btn btn-secondary ml-3" >Add Profile</a>
+		</li> -->
+		
+		<li class="nav-item">
+		<a href="/" class="btn btn-secondary ml-3">Criminals List</a>
+		</li>
+		
+		<!-- <li class="nav-item">
+		<select class="form-control ml-3" name="criminals" id="search-criminals">
+	  		<option value="1">name</option>
+	  		<option value="2">M.O.</option>
+	  		<option value="3">ALIAS</option>
+	  		<option value="4">LastLoc.</option>
+	  		<option value="5">currentLoc.</option>
+		</select>
+		</li>
+
+		<li class="nav-item">
+		<input class=" form-control mr-sm-2 ml-4" type="text" 
+			placeholder="Search.." value="" autocomplete="off" 
+			id="myinput"
+			onkeyup="searchFunction()" aria-label="Search">
+		</li> -->
+	</ul>
+</nav>	
+	<h1 class="heading">***Lists of Prisons***</h1>
+
+	<br>
+	<table class="table">
+		<thead class="table-header">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Pid</th>
+				<th scope="col">Prison Name</th>
+				<th scope="col">Location</th>
+				<th scope="col">Contacts</th>
+				<!-- <th width="200px">Action</th> -->
+			</tr>
+		</thead>
+		<tbody>
+			 <%
+			  if(data.length){
+			  var j=0;
+			  for(var i = 0; i< data.length; i++){
+			 %>  
+			  <tr>
+			    <th scope="row"><%= (i+1) %></th>
+			    <td><%= data[i].pid%></td>
+			    <td><%= data[i].pname%></td>
+			    <td><%= data[i].ploc%></td>
+			    <td>
+			    	<% 
+			    	console.log(tdata[j].pid+", "+tdata[j].ptel+"\n");
+			    	  while(j<tdata.length && data[i].pid === tdata[j].pid){
+			    	%>
+			    	<%= tdata[j].ptel %>
+			    	<br>
+			    	<%  
+			    		j++;
+			    		}
+			    	 %>
+			    	 
+			    </td> 
+			  <!--   
+			    <td>
+			    <a class="btn btn-success edit" href="/edit/<%=data[i].cid %>">Edit</a>                       
+			    <a class="btn btn-danger delete" onclick="return confirm('Do you really want to delete the Details?')" href="/delete/<%=data[i].cid%>/<%=data[i].cur_loc%>">Delete</a>                       
+			   </td> -->
+			  </tr>
+			  <%
+			   	}     
+			   }else{ %>
+			       <tr>
+			          <td colspan="3">No users present.</td>
+			       </tr>
+			    <% } %>    
+		</tbody>
+	</table>
+</body>
+</html>

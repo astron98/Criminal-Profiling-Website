@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watchlist Details</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+	* {
+		text-align: center;
+
+	  }
+	  h1{
+	  	font-size: 40;
+	  	color:purple;
+	  }
+	  label{
+
+	  }
+	  #f1{
+	  	border-spacing: 10%;
+	  	border-right: 10%;
+	  }
+</style>
+</head>
+<body>
+	<div>
+		<a href="/" class="btn btn-primary ml-3">Criminals List</a>
+	</div>
+	<h1>***Add Watchlist Details and Bounty!***</h1>
+<form action="/add/wlist" method="post" name="form1" class="f1">
+	<div class="form-group">
+		<select name="cid" class="form-control" required>
+  			<option value="">cid of the criminal</option>
+  			<option value="cid"><%= cid %></option>
+  		</select>	
+	</div>
+	<div class="form-group">
+		<!-- <label for="exampleInputId1">Id</label> -->
+		<input type="text" class="form-control" name="wcode" id="wcode" value="" placeholder="Watchlist ID" required>
+	</div>
+	<div class="form-group">
+		<!-- <label for="exampleInputPassword1">Name</label> -->
+		<input type="text" class="form-control" name="crimes" id="crimes" value="" placeholder="List of crimes" required>
+	</div>
+	<div class="form-group">
+		<!-- <label for="exampleInputEmail1">Email address</label> -->
+		<input type="text" class="form-control" name="bounty" id="bounty"  value="" placeholder="Enter the Bouty Amount" required>
+	</div>
+	<input type="submit"  class="btn btn-primary" value="Submit">
+</form>
+</body>
+</html>

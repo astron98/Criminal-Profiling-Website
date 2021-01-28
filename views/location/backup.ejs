@@ -1,0 +1,71 @@
+<!-- It will display the list of customers. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OLD-RECORDS-OF-Criminals</title>
+	<!-- <link rel="stylesheet" href="/stylesheet/style.css" /> -->
+	<script type="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style type="text/css">
+		.heading {
+			text-align: center;
+			font-size: 40;
+	  		color: purple;
+		}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+		<a href="/" class="btn btn-primary ml-3">Home</a>
+		</li>
+	</ul>
+	
+</nav>	
+	<h1 class="heading">***(DELETE HISTORY)***</h1>
+	<br>
+	<table class="table">
+		<thead class="table-header">
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Id</th>
+				<th scope="col">Criminal</th>
+				<th scope="col">MO</th>
+				<th scope="col">Alias</th>
+				<th scope="col">Last Location</th>
+				<th scope="col">Current Location</th>
+				<!-- <th width="200px">Action</th> -->
+			</tr>
+		</thead>
+		<tbody>
+			 <% if(data.length){
+			  for(var i = 0; i< data.length; i++){
+			 %>  
+			  <tr>
+			    <th scope="row"><%= (i+1) %></th>
+			    <td><%= data[i].cid%></td>
+			    <td><%= data[i].cname%></td>
+			    <td><%= data[i].mo%></td>
+			    <td><%= data[i].alias%></td>
+			    <td><%= data[i].lastloc%></td>
+			    <td><%= data[i].cur_loc%></td> 
+			    <td>                      
+			    <!-- <a class="btn btn-danger delete" onclick="return confirm('Do you really want to delete the Details?')" href="/delete/<%=data[i].cid%>/<%=data[i].cur_loc%>">Delete</a>                       
+			   </td> -->
+			  </tr>
+			  <% }
+			           
+			   }else{ %>
+			       <tr>
+			          <td colspan="3">No users present.</td>
+			       </tr>
+			    <% } %>    
+		</tbody>
+	</table>
+
+<!-- <script src="search.js"> -->
+</script>	
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update the customer's Detail!</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style type="text/css">
+    .heading {
+      font-size: 40;
+      text-align: center;
+      color: purple;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+    <a href="/home" class="btn btn-primary ml-3">Home</a>
+    </li>
+    
+    <li class="nav-item">
+    <a href="/add" class="btn btn-secondary ml-3" >Add Profile</a>
+    </li>
+    
+    <li class="nav-item">
+    <a href="/currentLoc/p" class="btn btn-secondary ml-3">Prison</a>
+    </li>
+    <li class="nav-item">
+    <a href="/currentLoc/r" class="btn btn-secondary ml-3">Rehabilitation</a>
+    </li>
+    <li class="nav-item">
+    <a href="/currentLoc/w" class="btn btn-secondary ml-3">Watchlist</a>
+    </li>
+    <li class="nav-item">
+    <a href="/delh" class="btn btn-secondary ml-3">Delete-History</a>
+    </li>
+</nav>    
+  <h1 class="heading">***Edit Criminal's Data***</h1>
+<form action="/edit/<%= cid %>" method="post" name="form1">
+
+<div class="form-group">
+  <!-- <label for="exampleInputPassword1">Name</label> -->
+  <input type="text" class="form-control" name="cname" id="cname" value="<%= cDetails.cname %>" placeholder="Criminal Name" required>
+</div>
+<div class="form-group">
+  <!-- <label for="exampleInputEmail1">Email address</label> -->
+  <input type="text" class="form-control" name="mo" id="mo" placeholder="MO" value="<%= cDetails.mo %>" required>
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" name="alias" id="alias" value="<%= cDetails.alias %>" placeholder="A.L.I.A.S" required>
+</div>
+<div class="form-group">
+  <input type="text" class="form-control" name="lastloc" id="lastloc" value="<%= cDetails.lastloc %>" placeholder="last-location" required>
+</div>
+<button type="submit" class="btn btn-info">Update</button>
+</form>
+<script>
+  document.getElementById("cname").value="<%= cDetails.cname %>";
+  document.getElementById("mo").value="<%= cDetails.mo %>";
+  document.getElementById("alias").value="<%= cDetails.alias %>";
+  document.getElementById("lastloc").value="<%= cDetails.lastloc %>";
+
+</script>
+</body>
+</html>
